@@ -9,9 +9,10 @@ $(document).ready(function () {
 	})
 
 	.mousedown(function() {
+	playHadouken();
     $('.ryu-ready').hide();
     $('.ryu-throwing').show();
-    $('.hadouken').show().animate(
+    $('.hadouken').finish().show().animate(
   	{'left': '1020px'}, 500,
   	function() {
     	$(this).hide();
@@ -25,4 +26,25 @@ $(document).ready(function () {
   	$('.ryu-ready').show();
 	})
 
+
+  	.keydown(function (e) {
+ 	var key = e.which;
+ 	if(key == 88) {
+ 	$('.ryu-ready').hide();
+    $('.ryu-cool').show(); 
+}
+})
+
+    .keyup(function (){
+    	$('.ryu-cool').hide();
+    	$('.ryu-ready').show();
+})
+
 });
+
+
+	function playHadouken () {
+  	$('#hadouken-sound')[0].volume = 0.5;
+  	$('#hadouken-sound')[0].load();
+  	$('#hadouken-sound')[0].play();
+}
