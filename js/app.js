@@ -27,15 +27,14 @@ $(document).ready(function () {
 	})
 
 
-  	.keydown(function (e) {
- 	var key = e.which;
- 	if(key == 88) {
+  	$(document).keydown(function (e) {
+ 	if (e.keyCode == 88)
  	$('.ryu-ready').hide();
     $('.ryu-cool').show(); 
-}
 })
 
-    .keyup(function (){
+    $(document).keyup(function (e){
+    	if (e.keyCode == 88)
     	$('.ryu-cool').hide();
     	$('.ryu-ready').show();
 })
